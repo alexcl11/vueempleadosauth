@@ -47,13 +47,12 @@
         mounted(){
             if(!sessionStorage.getItem("token")){
                 this.$router.push("/login")
+                return
             }
 
-            console.log(sessionStorage.getItem("token"))
 
             servicio.getSubordinados().then(response=>{
-                this.empleado = response
-                console.log(response)
+                this.empleados = response
             })
 
         }

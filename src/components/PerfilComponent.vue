@@ -6,7 +6,7 @@
                 <h6 class="card-subtitle mb-2 text-muted">ID: {{ empleado.idEmpleado }}</h6>
 
                 <ul class="list-group list-group-flush mb-3">
-                    <li class="list-group-item"><strong>Apellidos:</strong> {{ empleado.apellidos }}</li>
+                    <li class="list-group-item"><strong>Apellido:</strong> {{ empleado.apellido }}</li>
                     <li class="list-group-item"><strong>Oficio:</strong> {{ empleado.oficio }}</li>
                     <li class="list-group-item"><strong>Salario:</strong> {{ empleado.salario }} €</li>
                     <li class="list-group-item"><strong>Director (ID):</strong> {{ empleado.director }}</li>
@@ -30,9 +30,9 @@ import ServiceEmpleados from '@/services/ServiceEmpleados'
         mounted(){
             if(!sessionStorage.getItem("token")){
                 this.$router.push("/login")
-            }
+                return
+            } 
 
-            console.log(sessionStorage.getItem("token"))
 
             servicio.getPerfil().then(response=>{
                 this.empleado = response

@@ -37,11 +37,11 @@
                         username: this.username,
                         password: this.password
                     }   
-                servicio.getToken(user).then(response => {
-                    sessionStorage.setItem('token',response.data.response)
-                    alert(sessionStorage.getItem("token"))
-                })
-                this.$router.push("/perfil")
+                
+				servicio.getToken(user).then(response => {
+					sessionStorage.setItem('token', response.data.response)
+					this.$router.push("/perfil")
+				})
             }
             
         }
